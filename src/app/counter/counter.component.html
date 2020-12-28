@@ -1,0 +1,18 @@
+<h1 class="mat-display-1">Truquito</h1>
+
+<div class="form-div">
+  <div class="playerOneDiv">
+    <input type="playerTwo" matInput placeholder={{this.playerOneName}}>
+    <h1>{{ this.playerOne }}</h1>
+    <button (click)=this.sumPlayerOne()>+</button>
+    <button (click)=this.subPlayerOne()>-</button>
+  </div>
+
+  <div class="playerTwoDiv">
+    <input type="playerTwo" matInput placeholder={{this.playerTwoName}}>
+    <h1>{{ this.playerTwo }}</h1>
+    <button (click)=this.sumPlayerTwo()>+</button>
+    <button (click)=this.subPlayerTwo()>-</button>
+  </div>
+</div>
+<button (click)=this.reset()>Reset</button>
