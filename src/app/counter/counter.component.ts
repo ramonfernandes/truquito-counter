@@ -18,8 +18,7 @@ export class CounterComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    console.log('on init');
-
+    this.gameModel = this.placeholder()
     this.service
       .getGame(this.getGameId())
       .subscribe((games: GameModel[]) => {
@@ -30,7 +29,6 @@ export class CounterComponent implements OnInit {
   private getGameId(): string {
     let temp;
     this.router.paramMap.subscribe((map) => {
-      console.log(map.get("gameId"));
       temp = map.get("gameId");
     });
     return temp;
@@ -55,5 +53,20 @@ export class CounterComponent implements OnInit {
   public reset(): void {
     this.gameModel.player.score = 0;
     this.gameModel.oponent.score = 0;
+  }
+
+  private placeholder() {
+    return {
+      _id: null,
+      gameId: '',
+      player: {
+        name: '',
+        score: 0,
+      },
+      oponent: {
+        name: '',
+        score: 0,
+      },
+    };
   }
 }
