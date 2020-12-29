@@ -1,0 +1,18 @@
+<div class="form-div">
+  <input
+  [(ngModel)]="this.game.gameId"
+    matInput
+    placeholder="Enter The Game Name"
+  />
+  <input
+    [(ngModel)]="this.game.player.name"
+    matInput
+    placeholder="Player 1 Name"
+  />
+  <input
+  [(ngModel)]="this.game.oponent.name"
+    matInput
+    placeholder="Player 2 Name"
+  />
+  <button mat-button (click)="this.save()">Truco</button>
+</div>

@@ -8,13 +8,17 @@ import {CounterComponent} from './counter/counter.component';
 
 import { AppRoutingModule } from './app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { AppComponent } from './app.component';
 import {MatIconModule} from '@angular/material/icon';
+import { HttpClientModule } from '@angular/common/http';
+import { RegisterGameComponent } from './register-game/register-game.component';
+import { AppComponent } from './app.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
-    CounterComponent
+    CounterComponent,
+    RegisterGameComponent
   ],
   imports: [
     BrowserModule,
@@ -24,7 +28,9 @@ import {MatIconModule} from '@angular/material/icon';
     MatButtonToggleModule,
     MatFormFieldModule,
     MatInputModule,
-    MatIconModule
+    MatIconModule,
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

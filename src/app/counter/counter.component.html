@@ -1,17 +1,18 @@
 <div class="counter">
   <h1 class="mat-display-1">Truquito</h1>
+  <h1>"{{ this.gameModel.gameId }}" </h1>
 
   <div class="form-div">
-    <div class="playerOneDiv" [ngStyle]="{'background-color':this.playerOne === 30 ? 'mediumspringgreen' : this.playerTwo > 15 && this.playerOne <= 15 ? 'red' : 'white' }">
-      <input type="playerTwo" matInput placeholder="{{ this.playerOneName }}" />
-      <h1>{{ this.playerOne }}</h1>
+    <div class="playerOne" [ngStyle]="{'background-color':this.gameModel.player.score === 30 ? 'mediumspringgreen' : this.gameModel.oponent.score > 15 && this.gameModel.player.score <= 15 ? 'red' : 'white' }">
+      <h2>{{ this.gameModel.player.name }}</h2>
+      <h1>{{ this.gameModel.player.score }}</h1>
       <button mat-button (click)="this.subPlayerOne()">-1</button>
       <button mat-button (click)="this.sumPlayerOne()">+1</button>
     </div>
 
-    <div class="playerTwoDiv" [ngStyle]="{'background-color':this.playerTwo === 30 ? 'mediumspringgreen' : this.playerOne > 15 && this.playerTwo <= 15 ? 'red' : 'white' }">
-      <input type="playerTwo" matInput placeholder="{{ this.playerTwoName }}" />
-      <h1>{{ this.playerTwo }}</h1>
+    <div class="playerTwo" [ngStyle]="{'background-color':this.gameModel.oponent.score === 30 ? 'mediumspringgreen' : this.gameModel.player.score > 15 && this.gameModel.player.score <= 15 ? 'red' : 'white' }">
+      <h2>{{ this.gameModel.oponent.name }}</h2>
+      <h1>{{ this.gameModel.oponent.score }}</h1>
       <button mat-button (click)="this.subPlayerTwo()">-1</button>
       <button mat-button (click)="this.sumPlayerTwo()">+1</button>
     </div>

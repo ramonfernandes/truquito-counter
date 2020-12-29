@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { GameModel } from '../model/gamemodel';
+import { ServiceService } from '../service/service.service';
 
 @Component({
   selector: 'app-counter',
@@ -6,33 +9,51 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./counter.component.scss'],
 })
 export class CounterComponent implements OnInit {
-  playerOne = 0;
-  playerTwo = 0;
-  playerOneName = 'Nós';
-  playerTwoName = 'Eles';
+  gameModel: GameModel;
+  service: ServiceService;
 
-  constructor() {}
+  constructor(service: ServiceService, private router: ActivatedRoute) {
+    this.service = service;
+    this.router = router;
+  }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    console.log('on init');
+
+    this.service
+      .getGame(this.getGameId())
+      .subscribe((games: GameModel[]) => {
+        this.gameModel = games[0];
+      });
+  }
+
+  private getGameId(): string {
+    let temp;
+    this.router.paramMap.subscribe((map) => {
+      console.log(map.get("gameId"));
+      temp = map.get("gameId");
+    });
+    return temp;
+  }
 
   public sumPlayerOne(): void {
-    if (this.playerOne < 30) this.playerOne++;
+    if (this.gameModel.player.score < 30) this.gameModel.player.score++;
   }
 
   public sumPlayerTwo(): void {
-    if (this.playerTwo < 30) this.playerTwo++;
+    if (this.gameModel.oponent.score < 30) this.gameModel.oponent.score++;
   }
 
   public subPlayerOne(): void {
-    if (this.playerOne > 0) this.playerOne--;
+    if (this.gameModel.player.score > 0) this.gameModel.player.score--;
   }
 
   public subPlayerTwo(): void {
-    if (this.playerTwo > 0) this.playerTwo--;
+    if (this.gameModel.oponent.score > 0) this.gameModel.oponent.score--;
   }
 
   public reset(): void {
-    this.playerOne = 0;
-    this.playerTwo = 0;
+    this.gameModel.player.score = 0;
+    this.gameModel.oponent.score = 0;
   }
 }
