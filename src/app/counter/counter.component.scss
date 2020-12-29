@@ -1,7 +1,12 @@
+
+.counter {
+  width: 100%;
+}
+
 .form-div {
   display: flex;
   flex-direction: row-wrap;
-  width: 80%;
+  width: 100%;
 }
 
 h1 {
@@ -9,9 +14,13 @@ h1 {
   color: #6202ee;
 }
 
+.mat-button {
+  margin-top: 20px;
+}
+
 .playerOneDiv {
   text-align-last: center;
-  justify-content: space-between;
+  width: 50%;
   .mat-button {
     width: 50%;
   }
@@ -19,8 +28,8 @@ h1 {
 
 .playerTwoDiv {
   text-align-last: center;
-  justify-content: space-between;
   margin-left: 20px;
+  width: 50%;
   .mat-button {
     width: 50%;
   }
