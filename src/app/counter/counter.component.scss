@@ -5,9 +5,31 @@
 }
 
 h1 {
-  color: #6202EE;
+  justify-self: center;
+  color: #6202ee;
 }
 
 .playerOneDiv {
-  margin-right: 50px;
+  text-align-last: center;
+  justify-content: space-between;
+  .mat-button {
+    width: 50%;
+  }
+}
+
+.playerTwoDiv {
+  text-align-last: center;
+  justify-content: space-between;
+  margin-left: 20px;
+  .mat-button {
+    width: 50%;
+  }
+}
+
+.splitter {
+  width: 20px;
+}
+
+.counter {
+  display: inline-grid;
 }
